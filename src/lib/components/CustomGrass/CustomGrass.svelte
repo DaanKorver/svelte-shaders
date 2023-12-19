@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { createGrass } from './grass';
-	import { useTask, useThrelte } from '@threlte/core';
+	import { useTask, useThrelte, T } from '@threlte/core';
 
-	const { scene } = useThrelte();
+	const { scene, camera } = useThrelte();
 
 	const uniforms = {
 		uTime: {
@@ -13,8 +13,9 @@
 
 	onMount(() => {
 		const m = createGrass({ uniforms });
-
 		scene.add(m);
+
+		$camera.position.set(10, 1.3, 10);
 	});
 
 	useTask((delta) => {

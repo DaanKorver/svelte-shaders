@@ -1,22 +1,17 @@
 import {
-	BufferAttribute,
-	BufferGeometry,
 	DoubleSide,
 	Float32BufferAttribute,
 	InstancedBufferAttribute,
 	InstancedBufferGeometry,
 	Mesh,
-	MeshBasicMaterial,
-	RawShaderMaterial,
-	SphereGeometry
+	RawShaderMaterial
 } from 'three';
 
-import vert from './grass.vert';
 import frag from './grass.frag';
+import vert from './grass.vert';
 
 export function createGrass({ uniforms }: { uniforms: any }): Mesh {
 	const geometry = new InstancedBufferGeometry();
-	// const geometry = new BufferGeometry();
 
 	const verts = [];
 	verts.push(0.5, -0.5, 0);
@@ -28,7 +23,7 @@ export function createGrass({ uniforms }: { uniforms: any }): Mesh {
 
 	const uvs = [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0];
 
-	const instances = 150000;
+	const instances = 150_000;
 
 	const w = 35;
 	const z = 35;
