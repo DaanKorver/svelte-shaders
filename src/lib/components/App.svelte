@@ -7,6 +7,7 @@
 	import NoiseTransition from './NoiseTransition/NoiseTransition.svelte';
 	import { page } from '$app/stores';
 	import { get } from 'svelte/store';
+	import CustomGrass from './CustomGrass/CustomGrass.svelte';
 
 	function getComponent() {
 		const shader = get(page).url.searchParams.get('s');
@@ -17,6 +18,8 @@
 				return Lambert;
 			case 'noise':
 				return NoiseTransition;
+			case 'grass2':
+				return CustomGrass;
 			default:
 				return Grass;
 		}
