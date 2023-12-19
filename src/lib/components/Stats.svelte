@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { useFrame } from '@threlte/core';
+	import { useFrame, useTask } from '@threlte/core';
 	import Stats from 'stats.js';
 	import { onDestroy, onMount } from 'svelte';
 	const stats = new Stats();
@@ -12,21 +12,10 @@
 		stats.dom.remove();
 	});
 
-	useFrame(
-		() => {
-			stats.begin();
-		},
-		{
-			order: -Infinity
-		}
-	);
-
-	useFrame(
-		() => {
-			stats.end();
-		},
-		{
-			order: Infinity
-		}
-	);
+	useTask(() => {
+		stats.begin();
+	});
+	useTask(() => {
+		stats.end();
+	});
 </script>

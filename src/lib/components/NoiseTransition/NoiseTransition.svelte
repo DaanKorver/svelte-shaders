@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { T, useFrame } from '@threlte/core';
+	import { T, useTask } from '@threlte/core';
 	import { useTexture } from '@threlte/extras';
-	import { DoubleSide, Mesh } from 'three';
+	import { DoubleSide, LinearSRGBColorSpace, Mesh, SRGBColorSpace } from 'three';
 	// import * as dat from 'dat.gui';
 
 	import frag from './frag.glsl';
@@ -30,8 +30,8 @@
 
 	let size = { v: 1 };
 
-	useFrame(({ clock }) => {
-		uniforms.uTime.value = clock.getElapsedTime();
+	useTask((delta) => {
+		uniforms.uTime.value += delta;
 	});
 
 	const img1 = useTexture('/moon.jpg');

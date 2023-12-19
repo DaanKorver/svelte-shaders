@@ -2,6 +2,7 @@
 	import { ContactShadows, Grid, OrbitControls } from '@threlte/extras';
 	import { T } from '@threlte/core';
 	import Stats from './Stats.svelte';
+	import { SphereGeometry } from 'three';
 </script>
 
 <Grid

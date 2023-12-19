@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { createGrass } from './grass';
-	import { useFrame, useThrelte } from '@threlte/core';
+	import { useTask, useThrelte } from '@threlte/core';
 
 	const { scene } = useThrelte();
 
@@ -17,7 +17,7 @@
 		scene.add(m);
 	});
 
-	useFrame(({ clock }) => {
-		uniforms.uTime.value = clock.getElapsedTime();
+	useTask((delta) => {
+		uniforms.uTime.value += delta;
 	});
 </script>

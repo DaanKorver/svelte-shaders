@@ -70,6 +70,7 @@ export function createGrass({ uniforms }: { uniforms: any }): Mesh {
 		uniforms
 	});
 	const mesh = new Mesh(geometry, material);
+	mesh.frustumCulled = false;
 
 	return mesh;
 }

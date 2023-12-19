@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { T, useFrame } from '@threlte/core';
+	import { T, useTask } from '@threlte/core';
 	import { DoubleSide } from 'three';
 
 	import { Instance, InstancedMesh } from '@threlte/extras';
@@ -10,8 +10,8 @@
 
 	const shells = Array.from({ length: 64 });
 
-	useFrame(({ clock }) => {
-		uniforms.uTime.value = clock.getElapsedTime();
+	useTask((delta) => {
+		uniforms.uTime.value += delta;
 	});
 
 	const uniforms = {

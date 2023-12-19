@@ -1,12 +1,12 @@
 <script>
-	import { T, useFrame } from '@threlte/core';
+	import { T, useTask } from '@threlte/core';
 	import { DoubleSide } from 'three';
 
-	import vertex from './lamb.vert.glsl';
 	import fragment from './lamb.frag.glsl';
+	import vertex from './lamb.vert.glsl';
 
-	useFrame(({ clock }) => {
-		uniforms.uTime.value = clock.getElapsedTime();
+	useTask((delta) => {
+		uniforms.uTime.value += delta;
 	});
 
 	const uniforms = {
