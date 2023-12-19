@@ -13,7 +13,6 @@
 
 	onMount(() => {
 		const m = createGrass({ uniforms });
-		console.log(m);
 
 		scene.add(m);
 	});

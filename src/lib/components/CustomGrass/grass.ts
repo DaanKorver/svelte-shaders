@@ -35,6 +35,7 @@ export function createGrass({ uniforms }: { uniforms: any }): Mesh {
 
 	const terrainPos = [0.0, 0.0, 0.0];
 	const angles = [];
+	const heights = [];
 	for (let i = 0; i < instances; i++) {
 		const posiX = Math.random() * w - w / 2;
 		const posiY = 0;
@@ -44,6 +45,9 @@ export function createGrass({ uniforms }: { uniforms: any }): Mesh {
 
 		const angle = Math.random() * 360;
 		angles.push(angle);
+
+		const height = Math.min(Math.random() + 0.3, 1);
+		heights.push(height);
 	}
 
 	geometry.setIndex(indices);
@@ -55,9 +59,9 @@ export function createGrass({ uniforms }: { uniforms: any }): Mesh {
 		new InstancedBufferAttribute(new Float32Array(terrainPos), 3)
 	);
 	geometry.setAttribute('angle', new InstancedBufferAttribute(new Float32Array(angles), 1));
+	geometry.setAttribute('height', new InstancedBufferAttribute(new Float32Array(heights), 1));
 	geometry.instanceCount = instances;
 
-	// const material = new MeshBasicMaterial({ color: 0xff0000, side: DoubleSide });
 	const material = new RawShaderMaterial({
 		vertexShader: vert,
 		fragmentShader: frag,

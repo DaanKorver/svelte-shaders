@@ -17,7 +17,7 @@ void main() {
   vec3 color2 = vec3(0.067,0.486,0.075);
   vec3 mixed = mix(color1, color2, 1. - vUv.y);
 
-  float ao = pow(vUv.y, .6);
+  float ao = pow(vUv.y, 1.7);
 
   vec4 final = vec4(mixed * ao, 1);
 

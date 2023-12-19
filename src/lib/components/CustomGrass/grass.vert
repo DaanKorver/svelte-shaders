@@ -7,6 +7,7 @@ attribute vec3 position;
 attribute vec2 uv;
 attribute vec3 terrainPos;
 attribute float angle;
+attribute float height;
 
 varying vec2 vUv;
 
@@ -33,6 +34,7 @@ void main() {
 
   pos.x *= 0.15;
   pos.y += .5;
+  pos.y *= height;
 
   pos += terrainPos;
 
