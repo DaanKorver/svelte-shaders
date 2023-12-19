@@ -38,9 +38,10 @@ void main() {
 
   pos += terrainPos;
 
+  float speed = 0.2;
   if(pos.y > .5) {
-    pos.x += sin(uTime * (angle * 0.01)) * 0.025;
-    pos.z += cos(uTime * (angle * 0.01)) * 0.025;
+    pos.x += sin(uTime * speed * (angle * 0.01)) * 0.025;
+    pos.z += cos(uTime * speed * (angle * 0.01)) * 0.025;
   }
 
   vec3 axis = vec3(0., 1., 0.);

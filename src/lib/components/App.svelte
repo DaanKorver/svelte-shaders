@@ -26,7 +26,7 @@
 	}
 </script>
 
-<Canvas>
+<Canvas dpr={2}>
 	<svelte:component this={getComponent()} />
 	<Base />
 </Canvas>
